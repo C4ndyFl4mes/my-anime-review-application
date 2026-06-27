@@ -11,6 +11,7 @@ import PanelPage from "./pages/PanelPage";
 import UserReportsPage from "./pages/UserReportsPage";
 import ReviewReportsPage from "./pages/ReviewReportsPage";
 import BugReportsPage from "./pages/BugReportsPage";
+import AuthenticationPage from "./pages/AuthenticationPage";
 
 export default createBrowserRouter([
     {
@@ -64,6 +65,10 @@ export default createBrowserRouter([
             {
                 path: "/admin/bug-reports",
                 element: <BugReportsPage />
+            },
+            {
+                path: "/account",
+                element: <AuthenticationPage />
             }
         ]
     }

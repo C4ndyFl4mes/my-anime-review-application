@@ -1,8 +1,11 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import { observer } from "mobx-react-lite";
+import GlobalMessageStore from "../../stores/GlobalMessageStore";
+import GlobalMessageDisplay from "../base/GlobalMessageDisplay";
 
-export default function Layout() {
+export default observer(function Layout() {
     return (
         <div className="flex flex-col min-h-screen primary-fg-color">
             <Header />
@@ -12,6 +15,9 @@ export default function Layout() {
                     <Outlet />
                 </main>
             </div>
+            {GlobalMessageStore.globalMessage && (
+                <GlobalMessageDisplay {...GlobalMessageStore.globalMessage} isExiting={GlobalMessageStore.isExiting} />
+            )}
         </div>
     );
-}
+});
