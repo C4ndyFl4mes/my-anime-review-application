@@ -1,4 +1,4 @@
 export interface IAuthRes {
-    isAuthenticated: boolean;
+    userId: string;
     isAdmin: boolean;
 }

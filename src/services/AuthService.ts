@@ -42,6 +42,17 @@ class AuthService {
             return this.resHandler.Failure(e);
         }
     }
+
+    async IsAuthenticated(): Promise<IAuthRes | IError> {
+        try {
+            return this.resHandler.Success<IAuthRes>(
+                await this.client.get<IAuthRes>("/is-authenticated", this.config)
+            );
+        } catch (e: unknown)
+        {
+            return this.resHandler.Failure(e);
+        }
+    }
 }
 
 export default new AuthService();

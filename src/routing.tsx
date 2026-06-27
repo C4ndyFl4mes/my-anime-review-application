@@ -12,6 +12,7 @@ import UserReportsPage from "./pages/UserReportsPage";
 import ReviewReportsPage from "./pages/ReviewReportsPage";
 import BugReportsPage from "./pages/BugReportsPage";
 import AuthenticationPage from "./pages/AuthenticationPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 export default createBrowserRouter([
     {
@@ -51,24 +52,29 @@ export default createBrowserRouter([
                 element: <FeedPage />
             },
             {
-                path: "/admin/panel",
-                element: <PanelPage />
-            },
-            {
-                path: "/admin/user-reports",
-                element: <UserReportsPage />
-            },
-            {
-                path: "/admin/review-reports",
-                element: <ReviewReportsPage />
-            },
-            {
-                path: "/admin/bug-reports",
-                element: <BugReportsPage />
-            },
-            {
                 path: "/account",
                 element: <AuthenticationPage />
+            },
+            {
+                element: <ProtectedRoute />,
+                children: [
+                    {
+                        path: "/admin/panel",
+                        element: <PanelPage />
+                    },
+                    {
+                        path: "/admin/user-reports",
+                        element: <UserReportsPage />
+                    },
+                    {
+                        path: "/admin/review-reports",
+                        element: <ReviewReportsPage />
+                    },
+                    {
+                        path: "/admin/bug-reports",
+                        element: <BugReportsPage />
+                    }
+                ]
             }
         ]
     }

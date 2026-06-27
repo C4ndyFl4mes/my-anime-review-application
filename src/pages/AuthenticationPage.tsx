@@ -7,9 +7,12 @@ import type { IFieldErrors, IValidationError } from "../interfaces/responses/IVa
 import type { IError } from "../interfaces/responses/IError";
 import { Validation } from "../utils/Validation";
 import GlobalMessageStore from "../stores/GlobalMessageStore";
+import AuthenticationStore from "../stores/AuthenticationStore";
+import { useNavigate } from "react-router-dom";
 
 // This page is responsible for handling user authentication, including sign-in and sign-up functionalities. It provides a form for users to enter their credentials and handles validation and API requests.
 export default function AuthenticationPage() {
+    let navigate = useNavigate();
     const [formOption, setFormOption] = useState(true);
     const [fieldErrors, setFieldErrors] = useState<IFieldErrors>({});
     const [apiError, setApiError] = useState<IError | null>(null);
@@ -33,8 +36,11 @@ export default function AuthenticationPage() {
         if (Object.keys(errors).length === 0) {
             const res: IAuthRes | IValidationError | IError = formOption ? await AuthService.SignIn(signInCredentials) : await AuthService.SignUp(signUpCredentials);
 
-            if ((res as IAuthRes).isAuthenticated) {
-               GlobalMessageStore.setMessage("Authentication successful.", 200);
+            if ((res as IAuthRes).userId) {
+                const auth: IAuthRes = (res as IAuthRes);
+                GlobalMessageStore.setMessage("Authentication successful.", 200);
+                AuthenticationStore.setState(auth);
+                navigate(`/user/${auth.userId}/profile`);
             }
 
             if ((res as IError)?.statusCode) {
