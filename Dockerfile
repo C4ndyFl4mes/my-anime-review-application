@@ -1,11 +1,11 @@
-ARG NODE_VERSION=26.3.0-alpine
+ARG NODE_VERSION=24-alpine
 ARG NGINX_VERSION=stable-alpine3.23
 
 FROM node:${NODE_VERSION} AS builder
 
 WORKDIR /app
 
-COPY package.json package-lock.json* ./
+COPY package.json package-lock.json ./
 RUN --mount=type=cache,target=/root/.npm npm ci
 
 COPY . .
