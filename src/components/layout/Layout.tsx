@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
-import Sidebar from "./Sidebar";
+import Menu from "./Menu";
 import { observer } from "mobx-react-lite";
 import GlobalMessageStore from "../../stores/GlobalMessageStore";
 import GlobalMessageDisplay from "../base/GlobalMessageDisplay";
@@ -17,7 +17,7 @@ export default observer(function Layout() {
         <div className="flex flex-col min-h-screen primary-fg-color">
             <Header />
             <div className="flex-1 flex flex-row">
-                <Sidebar />
+                <Menu authState={AuthenticationStore.authState} />
                 <main className="flex-1 container mx-auto px-4 py-8">
                     <Outlet />
                 </main>
