@@ -18,7 +18,7 @@ export default observer(function Layout() {
             <Header />
             <div className="flex-1 flex flex-row">
                 <Menu authState={AuthenticationStore.authState} />
-                <main className="flex-1 container mx-auto px-4 py-8">
+                <main className="flex-1 container mx-auto py-8 pb-30">
                     <Outlet />
                 </main>
             </div>

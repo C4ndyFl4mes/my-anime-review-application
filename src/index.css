@@ -2,6 +2,7 @@
 
 body {
   background-color: #202020;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
 .primary-bg-color {
@@ -34,6 +35,14 @@ body {
 
 .cancel-button-bg-color {
   background-color: #BC2F2F;
+}
+
+.border-secondary-color {
+  border-color: #003C42;
+}
+
+.over-image-text-bg {
+  background-color: #0000009c;
 }
 
 .field-group {
@@ -73,6 +82,15 @@ body {
 
 .global-message-exit {
   animation: global-message-slide-out-mobile 300ms ease-in both;
+}
+
+.search-bar:focus {
+  outline-color: #005a63;
+  outline-style: dashed;
+}
+
+.text-xxs {
+  font-size: 0.6rem;
 }
 
 @media (min-width: 640px) {

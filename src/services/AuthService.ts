@@ -9,14 +9,12 @@ import type { IRefreshRes } from "../interfaces/responses/IRefreshRes";
 
 // This service handles user authentication by providing methods for user authentication.
 class AuthService {
-    resHandler = new ResponseHandler();
-
-    client = Axios.create({
+    private resHandler = new ResponseHandler();
+    private client = Axios.create({
         baseURL: 'https://localhost:8443/api/user',
         withCredentials: true
     });
-
-    config = {
+    private config = {
         headers: {
             'Content-Type': 'application/json'
         }
