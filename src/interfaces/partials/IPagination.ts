@@ -1,12 +1,12 @@
 export interface IPagination {
-    lastVisiblePage: number;
-    hasNextPage: boolean;
-    currentPage: number;
+    last_visible_page: number;
+    has_next_page: boolean;
+    current_page: number;
     items: IItems;
 }
 
 export interface IItems {
     count: number;
     total: number;
-    perPage: number;
+    per_page: number;
 }

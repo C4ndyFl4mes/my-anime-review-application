@@ -12,13 +12,13 @@ export default observer(function Layout() {
     useEffect(() => {
         AuthenticationStore.getCurrentState();
     }, []);
-    
+
     return (
         <div className="flex flex-col min-h-screen primary-fg-color">
             <Header />
             <div className="flex-1 flex flex-row">
                 <Menu authState={AuthenticationStore.authState} />
-                <main className="flex-1 container mx-auto py-8 pb-30">
+                <main className="flex-1 container mx-auto py-8 pb-30 overflow-hidden">
                     <Outlet />
                 </main>
             </div>

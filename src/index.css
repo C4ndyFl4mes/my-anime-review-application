@@ -93,6 +93,22 @@ body {
   font-size: 0.6rem;
 }
 
+.browse-grid {
+  max-width: 75rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+@media (min-width: 500px) {
+  .browse-grid {
+    max-width: 75rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 2rem;
+  }
+}
+
 @media (min-width: 640px) {
   .global-message-enter {
     animation-name: global-message-slide-in-desktop;

@@ -6,10 +6,9 @@ import signin_icon from "../../assets/icons/signin.svg";
 import browse_icon from "../../assets/icons/browse.svg";
 import feed_icon from "../../assets/icons/feed.svg";
 
-export default function Menu({ authState }: { authState: IAuthRes | null })
-{
-    return(
-        <aside className="w-screen flex flex-row fixed bottom-0 md:relative md:flex-col md:w-50 secondary-bg-color">
+export default function Menu({ authState }: { authState: IAuthRes | null }) {
+    return (
+        <aside className="w-screen flex flex-row fixed bottom-0 min-w-fit md:relative md:flex-col md:w-50 secondary-bg-color z-10">
             <ul className="flex justify-evenly md:flex-col w-full md:px-2">
                 {authState && authState.isAdmin && (
                     <li className="flex-1 flex items-center justify-center md:justify-start">
